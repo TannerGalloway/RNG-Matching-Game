@@ -1,0 +1,35 @@
+body
+{
+    background: url("../images/pac-man\ background.jpeg");
+    background-color: black;
+    background-size: 100vh, 100vw;
+}
+#bg img
+{
+     width: 99vw;
+     height: 97vh;
+}
+
+  h1
+{
+    color: #FFFF00; 
+}
+ 
+#directions
+{
+    color: #FFFF00;
+    font-size: 115%;
+    max-width: 680px;
+}
+
+h3
+{
+    /* color: #DEA185; */
+    color: white;
+} 
+
+
+.rngImages
+{
+    width: 100px;
+}

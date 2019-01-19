@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pac-Man Guessing Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1>Pac-Man Guessing Game</h1>
+        <div id="directions">
+            <p>You will be given a random number at the start of the game.</p>
+            <p>There is Pac-man and three ghost below. By clicking on pac-man or the ghost you will add a specific amount
+                of points to your total score.</p>
+            <p>You win the game by matching your score to the random number, you lose the game if your total score gose
+                above the random number.</p>
+            <p>The value of pac-man and the ghosts is hidden from you until you click on it.</p>
+            <p>Each time when the game starts, the game will change the values of pac-man and the ghosts.</p>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <h3>#</h3>
+            </div>
+            <div class="col-sm-2">
+                <h3>Wins: <span id="wins">#</span></h3>
+                <h3>Losses: <span id="losses">#</span></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img class = "rngImages" src="assets/images/PacMan.png">
+                <img class = "rngImages" src="assets/images/blinky.png">
+                <img class = "rngImages" src="assets/images/inky.png">
+                <img class = "rngImages" src="assets/images/pinky.png">
+                <img class = "rngImages" src="assets/images/clyde.png">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h3>Your total score is:</h3>
+                <h3>#</h3>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

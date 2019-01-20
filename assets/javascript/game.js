@@ -5,35 +5,35 @@ $(document).ready(function()
     var wins = 0;
     var losses = 0;
     
-    var images = [];
+    var imageIds = ["#pacman", "#redGhost", "#blueGhost", "#pinkGhost", "#orangeGhost"];
 
     //add images to the above array
-    for(i = 0; i < 5; i++)
-    {
-        images[i] = new Image();
-        switch (i)
-        {
-            case 0:
-            images[i] = "assets/images/PacMan.png"
-            break;
+    // for(i = 0; i < 5; i++)
+    // {
+    //     images[i] = new Image();
+    //     switch (i)
+    //     {
+    //         case 0:
+    //         images[i] = "assets/images/PacMan.png"
+    //         break;
 
-            case 1:
-            images[i] = "assets/images/blinky.png"
-            break;
+    //         case 1:
+    //         images[i] = "assets/images/blinky.png"
+    //         break;
             
-            case 2:
-            images[i] = "assets/images/inky.png"
-            break;
+    //         case 2:
+    //         images[i] = "assets/images/inky.png"
+    //         break;
 
-            case 3:
-            images[i] = "assets/images/pinky.png"
-            break;
+    //         case 3:
+    //         images[i] = "assets/images/pinky.png"
+    //         break;
             
-            case 4:
-            images[i] = "assets/images/clyde.png"
-            break;
-        }
-    }
+    //         case 4:
+    //         images[i] = "assets/images/clyde.png"
+    //         break;
+    //     }
+    // }
     
 
     //get html text elements 
@@ -48,16 +48,20 @@ $(document).ready(function()
     //add random number to screen
     $(randomNumMatchText).text(randomNumMatch);
 
-    //create images from the array and give them values
-    for(i = 0; i < 5; i++)
+    // //create images from the array and give them values
+    // for(i = 0; i < 5; i++)
+    // {
+    //     var pacmanImages = $("<img>");
+    //     pacmanImages.addClass("rngImages");
+    //     pacmanImages.attr("src", images[i]);
+    //     pacmanImages.attr("value", genRandomNum(1, 15));
+    //     $(".col1").append(pacmanImages);
+    // }
+    // console.log(pacmanImages);
+    for(i = 0; i < imageIds.length - 1; i++)
     {
-        var pacmanImages = $("<img>");
-        pacmanImages.addClass("rngImages");
-        pacmanImages.attr("src", images[i]);
-        pacmanImages.attr("value", genRandomNum(1, 15));
-        $(".col1").append(pacmanImages);
+        $(imageIds[i]).attr("value", genRandomNum(1, 15));
     }
-    
     //get the value of the image add it to your score and check if you win or lose
     $(".rngImages").on("click", function()
     {
@@ -91,10 +95,17 @@ $(document).ready(function()
     function reset()
     {
         randomNumMatch = genRandomNum(30, 60);
+
         $(randomNumMatchText).text(randomNumMatch);
+
         totalScore = 0;
+
         $(totalScoreText).text(totalScore);
-    
+        
+        for(i = 0; i < imageIds.length - 1; i++)
+        {
+            $(imageIds[i]).attr("value", genRandomNum(1, 15));
+        }
     }
     
 });

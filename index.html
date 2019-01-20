@@ -16,9 +16,9 @@
         <h1>Pac-Man Guessing Game</h1>
         <div id="directions">
             <p>You will be given a random number at the start of the game.</p>
-            <p>There is Pac-man and three ghost below. By clicking on pac-man or the ghost you will add a specific amount
+            <p>There is Pac-man and the four ghosts below. By clicking on pac-man or the ghosts you will add a specific amount
                 of points to your total score.</p>
-            <p>You win the game by matching your score to the random number, you lose the game if your total score gose
+            <p>You win the game by matching your score to the random number, you lose the game if your total score goes
                 above the random number.</p>
             <p>The value of pac-man and the ghosts is hidden from you until you click on it.</p>
             <p>Each time when the game starts, the game will change the values of pac-man and the ghosts.</p>
@@ -26,29 +26,27 @@
         </div>
         <div class="row">
             <div class="col-sm-2">
-                <h3>#</h3>
+                <h3 id="matchNum"></h3>
             </div>
             <div class="col-sm-2">
-                <h3>Wins: <span id="wins">#</span></h3>
-                <h3>Losses: <span id="losses">#</span></h3>
+                <h3>Wins: <span id="wins">0</span></h3>
+                <h3>Losses: <span id="losses">0</span></h3>
             </div>
         </div>
         <div class="row">
-            <div class="col">
-                <img class = "rngImages" src="assets/images/PacMan.png">
-                <img class = "rngImages" src="assets/images/blinky.png">
-                <img class = "rngImages" src="assets/images/inky.png">
-                <img class = "rngImages" src="assets/images/pinky.png">
-                <img class = "rngImages" src="assets/images/clyde.png">
+            <div class="col1">
+
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <h3>Your total score is:</h3>
-                <h3>#</h3>
+                <h3 id="score">0</h3>
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type = "text/javascript" src="assets/javascript/game.js"></script>
 </body>
 
 </html>

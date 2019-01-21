@@ -4,36 +4,9 @@ $(document).ready(function()
     var totalScore = 0;
     var wins = 0;
     var losses = 0;
+    var charecterValue = 0;
     
     var imageIds = ["#pacman", "#redGhost", "#blueGhost", "#pinkGhost", "#orangeGhost"];
-
-    //add images to the above array
-    // for(i = 0; i < 5; i++)
-    // {
-    //     images[i] = new Image();
-    //     switch (i)
-    //     {
-    //         case 0:
-    //         images[i] = "assets/images/PacMan.png"
-    //         break;
-
-    //         case 1:
-    //         images[i] = "assets/images/blinky.png"
-    //         break;
-            
-    //         case 2:
-    //         images[i] = "assets/images/inky.png"
-    //         break;
-
-    //         case 3:
-    //         images[i] = "assets/images/pinky.png"
-    //         break;
-            
-    //         case 4:
-    //         images[i] = "assets/images/clyde.png"
-    //         break;
-    //     }
-    // }
     
 
     //get html text elements 
@@ -42,33 +15,32 @@ $(document).ready(function()
     var winsText = document.getElementById("wins");
     var lossesText = document.getElementById("losses");
     
-    //create random number between 30 and 60
-    randomNumMatch = genRandomNum(30, 60);
+    //create random number between 19 and 120
+    randomNumMatch = genRandomNum(19, 120);
     
     //add random number to screen
     $(randomNumMatchText).text(randomNumMatch);
 
-    // //create images from the array and give them values
-    // for(i = 0; i < 5; i++)
-    // {
-    //     var pacmanImages = $("<img>");
-    //     pacmanImages.addClass("rngImages");
-    //     pacmanImages.attr("src", images[i]);
-    //     pacmanImages.attr("value", genRandomNum(1, 15));
-    //     $(".col1").append(pacmanImages);
-    // }
-    // console.log(pacmanImages);
-    for(i = 0; i < imageIds.length - 1; i++)
+    //add random value to images
+    for(i = 0; i < imageIds.length; i++)
     {
-        $(imageIds[i]).attr("value", genRandomNum(1, 15));
+        $(imageIds[i]).attr("value", genRandomNum(1, 12));
     }
+    
+    //check to see if those values generated are unique 
+    isunique(imageIds)
+
     //get the value of the image add it to your score and check if you win or lose
     $(".rngImages").on("click", function()
     {
         //check value of image clicked on
-        var charecterValue = $(this).attr("value");
+        charecterValue = $(this).attr("value");
         charecterValue = parseInt(charecterValue);
+        
+        //add image value to total score
         totalScore += charecterValue;
+
+        //display score to screen
         $(totalScoreText).text(totalScore);
 
         //win/loss condition
@@ -84,17 +56,18 @@ $(document).ready(function()
             $(lossesText).text(losses);
             reset();
         }
+
     });
     //function to generate random number
     function genRandomNum(min, max)
     {
-        return Math.floor(Math.random() * (max - min + 1) + min);
+        return Math.floor(Math.random() * (max - min) + min);
     }
     
     //reset
     function reset()
     {
-        randomNumMatch = genRandomNum(30, 60);
+        randomNumMatch = genRandomNum(19, 120);
 
         $(randomNumMatchText).text(randomNumMatch);
 
@@ -102,10 +75,43 @@ $(document).ready(function()
 
         $(totalScoreText).text(totalScore);
         
-        for(i = 0; i < imageIds.length - 1; i++)
+        for(i = 0; i < imageIds.length; i++)
         {
-            $(imageIds[i]).attr("value", genRandomNum(1, 15));
+            $(imageIds[i]).attr("value", genRandomNum(1, 12));
+            
         }
+        isunique(imageIds)
+        
+    }
+    //checks to see if all the images values have a unique value
+    function isunique(arr)
+    {
+        var charecterValue1 = 0;
+        var charecterValue2 = 0;
+        var hasdup = false;
+        do
+        {
+            for(i = 0; i <= arr.length; i++)
+            {
+    
+                for(j = i; j < arr.length; j++)
+                {   
+                    charecterValue1 = parseInt($(arr[i]).attr("value"));
+                    charecterValue2 = parseInt($(arr[j]).attr("value"));
+                    if(i != j && charecterValue1 == charecterValue2)
+                    {
+                     $(arr[j]).attr("value", genRandomNum(1, 12));
+                     isunique(imageIds);
+                     hasdup = true;
+                    }
+                    else
+                    {
+                        hasdup = false;
+                    }
+                }
+            }
+        } while (hasdup == true); 
+        
     }
     
 });

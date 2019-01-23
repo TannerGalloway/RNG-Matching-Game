@@ -1,19 +1,29 @@
 $(document).ready(function()
-{   //assign variables
+{   
+    //assign variables
     var randomNumMatch = 0;
     var totalScore = 0;
     var wins = 0;
     var losses = 0;
     var charecterValue = 0;
     
-    var imageIds = ["#pacman", "#redGhost", "#blueGhost", "#pinkGhost", "#orangeGhost"];
     
+    var imageIds = ["#pacman", "#redGhost", "#blueGhost", "#pinkGhost", "#orangeGhost"];
+
 
     //get html text elements 
     var randomNumMatchText = document.getElementById("matchNum");
     var totalScoreText = document.getElementById("score");
     var winsText = document.getElementById("wins");
     var lossesText = document.getElementById("losses");
+
+    //create audio elements
+    var winaudio = document.createElement("audio");
+    var loseaudio = document.createElement("audio");
+    
+    //add sound to audio elements
+    winaudio.setAttribute("src", "assets/sounds/pacman_win.mp3");
+    loseaudio.setAttribute("src", "assets/sounds/pacman_lose.mp3");
     
     //create random number between 19 and 120
     randomNumMatch = genRandomNum(19, 120);
@@ -48,12 +58,14 @@ $(document).ready(function()
         {
             wins++;
             $(winsText).text(wins);
+            winaudio.play();
             reset();
         }
         else if(totalScore > randomNumMatch)
         {
             losses++;
             $(lossesText).text(losses);
+            loseaudio.play();
             reset();
         }
 
@@ -113,6 +125,7 @@ $(document).ready(function()
         } while (hasdup == true); 
         
     }
+
     
 });
 

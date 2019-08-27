@@ -9,3 +9,6 @@ You win the game by matching your score to the random number, you lose the game 
 The value of pac-man and the ghosts is hidden from you until you click on it.
 
 Each time when the game starts, the game will change the values of pac-man and the ghosts.
+
+Visit this webpage by clicking the link below <br />
+https://tannergalloway.github.io/RNG-Matching-Game/
